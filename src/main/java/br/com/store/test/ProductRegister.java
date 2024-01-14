@@ -1,6 +1,8 @@
 package br.com.store.test;
 
+import br.com.store.dao.ProductDAO;
 import br.com.store.model.Product;
+import br.com.store.util.JPAUtil;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -16,14 +18,15 @@ public class ProductRegister {
         cellphone.setPrice(new BigDecimal("5000"));
 
         // creating the factory to persist on entity
-        EntityManagerFactory factory = Persistence.createEntityManagerFactory("store");
-        EntityManager em = factory.createEntityManager();
+        EntityManager em = JPAUtil.getEntityManager();
+
+        ProductDAO productDAO = new ProductDAO(em);
 
         // begin the transaction to database
         em.getTransaction().begin();
 
         // persisting on entity
-        em.persist(cellphone);
+        productDAO.create(cellphone);
 
         // on end the transaction we need to commit
         em.getTransaction().commit();
