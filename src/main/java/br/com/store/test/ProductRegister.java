@@ -19,7 +19,7 @@ public class ProductRegister {
 
         ProductDAO productDAO = new ProductDAO(em);
 
-        List<Product> all = productDAO.getAll();
+        List<Product> all = productDAO.getByCategory("cellphones");
         all.forEach(p -> System.out.println(p.getName()));
 
 
