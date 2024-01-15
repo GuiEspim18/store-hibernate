@@ -1,7 +1,20 @@
 package br.com.store.model;
 
-public enum Category {
-    CELLPHONE,
-    INFORMATION_TECHNOLOGY,
-    BOOKS;
+import javax.persistence.*;
+
+@Entity
+@Table(name="categories")
+public class Category {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+    private String name;
+
+    public Category(String name) {
+        this.name = name;
+    }
+
+    public String getName() {
+        return this.name;
+    }
 }
