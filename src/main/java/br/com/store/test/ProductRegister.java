@@ -1,6 +1,7 @@
 package br.com.store.test;
 
 import br.com.store.dao.ProductDAO;
+import br.com.store.model.Category;
 import br.com.store.model.Product;
 import br.com.store.util.JPAUtil;
 
@@ -12,10 +13,7 @@ import java.math.BigDecimal;
 public class ProductRegister {
     public static void main (String[] args) {
         // creating a product in database
-        Product cellphone = new Product();
-        cellphone.setName("Samsung s23");
-        cellphone.setDescription("Celular Samsung s23");
-        cellphone.setPrice(new BigDecimal("5000"));
+        Product cellphone = new Product("Samsung S23", "Celular Samsung 23 top de linha da marca", new BigDecimal("5000"), Category.CELLPHONE);
 
         // creating the factory to persist on entity
         EntityManager em = JPAUtil.getEntityManager();
