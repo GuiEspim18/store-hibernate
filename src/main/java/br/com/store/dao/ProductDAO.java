@@ -19,4 +19,9 @@ public class ProductDAO {
     public void update(Product product) {
         this.em.merge(product);
     }
+
+    public void remove(Product product) {
+        product = this.em.merge(product);
+        this.em.remove(product);
+    }
 }

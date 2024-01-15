@@ -20,4 +20,9 @@ public class CategoryDAO {
         this.em.merge(category);
     }
 
+    public void remove(Category category) {
+        category = this.em.merge(category);
+        this.em.remove(category);
+    }
+
 }
