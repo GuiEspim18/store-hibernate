@@ -22,6 +22,9 @@ public class ProductRegister {
         List<Product> all = productDAO.getByCategory("cellphones");
         all.forEach(p -> System.out.println(p.getName()));
 
+        BigDecimal price = productDAO.getPriceByName("Samsung S23");
+        System.out.println(price);
+
 
     }
 
